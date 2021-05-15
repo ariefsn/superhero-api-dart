@@ -1,7 +1,7 @@
 name: superhero_api
-description: Wrapper for superhero api.
-version: 0.0.1
-homepage: http://www.github.com/ariefsn/superhero-api-dart
+description: Wrapper for superhero api. It's can be use to generate heroes, appearances, origins, and superpowers.
+version: 0.0.2
+homepage: https://www.github.com/ariefsn/superhero-api-dart
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

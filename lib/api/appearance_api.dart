@@ -12,9 +12,7 @@ class AppearanceApi {
   }
 
   /// Return list of appearances
-  Future<ResponseAppearancesModel> getAll({
-    ParamsModel params
-  }) async {
+  Future<ResponseAppearancesModel> getAll({ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
@@ -39,14 +37,14 @@ class AppearanceApi {
   }
 
   /// Return details of appearance by query
-  Future<ResponseAppearancesModel> getByQuery(QueryModel query, {
-    ParamsModel params
-  }) async {
+  Future<ResponseAppearancesModel> getByQuery(QueryModel query,
+      {ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
     try {
-      var res = await _api.get("/appearances/query/${query.field}/${query.opr.value()}/${query.value}$p");
+      var res = await _api.get(
+          "/appearances/query/${query.field}/${query.opr.value()}/${query.value}$p");
 
       return ResponseAppearancesModel.fromJson(res.data);
     } catch (e) {

@@ -1,5 +1,5 @@
 enum QueryOperator {
-  Eq, Ne, Gt, Gte, Lt, Lte, In, Nin, StartWith, EndWith, Contains, Between, BetweenEqual, ElementMatch
+  Eq, Ne, Gt, Gte, Lt, Lte, In, Nin, Sw, Ew, Ctn, Bw, Bwe, Em
 }
 
 extension asString on QueryOperator {

@@ -12,15 +12,22 @@ class ConnectionModel {
   });
 
   ConnectionModel.fromJson(Map<String, dynamic> json)
-    : teams = ((json["teams"] ?? []) as List).map((e) => UrlModel.fromJson(e)).toList(),
-      occupations = ((json["occupation"] ?? []) as List).map((e) => e.toString()).toList(),
-      bases = ((json["base"] ?? []) as List).map((e) => e.toString()).toList(),
-      relatives = ((json["relatives"] ?? []) as List).map((e) => e.toString()).toList();
+      : teams = ((json["teams"] ?? []) as List)
+            .map((e) => UrlModel.fromJson(e))
+            .toList(),
+        occupations = ((json["occupation"] ?? []) as List)
+            .map((e) => e.toString())
+            .toList(),
+        bases =
+            ((json["base"] ?? []) as List).map((e) => e.toString()).toList(),
+        relatives = ((json["relatives"] ?? []) as List)
+            .map((e) => e.toString())
+            .toList();
 
   Map<String, dynamic> toJson() => {
-    "teams": teams,
-    "occupations": occupations,
-    "bases": bases,
-    "relatives": relatives,
-  };
+        "teams": teams,
+        "occupations": occupations,
+        "bases": bases,
+        "relatives": relatives,
+      };
 }

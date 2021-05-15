@@ -12,9 +12,7 @@ class OriginApi {
   }
 
   /// Return list of origins
-  Future<ResponseOriginsModel> getAll({
-    ParamsModel params
-  }) async {
+  Future<ResponseOriginsModel> getAll({ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
@@ -39,14 +37,14 @@ class OriginApi {
   }
 
   /// Return details of origin by query
-  Future<ResponseOriginsModel> getByQuery(QueryModel query, {
-    ParamsModel params
-  }) async {
+  Future<ResponseOriginsModel> getByQuery(QueryModel query,
+      {ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
     try {
-      var res = await _api.get("/origins/query/${query.field}/${query.opr.value()}/${query.value}$p");
+      var res = await _api.get(
+          "/origins/query/${query.field}/${query.opr.value()}/${query.value}$p");
 
       return ResponseOriginsModel.fromJson(res.data);
     } catch (e) {

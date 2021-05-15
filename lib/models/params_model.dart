@@ -2,10 +2,11 @@ import 'package:superhero_api/models/query_model.dart';
 
 class ParamsModel {
   List<QueryModel> queries;
-  String limit, skip, sortField, sortBy;
+  String sortField, sortBy;
+  int limit, skip;
 
   ParamsModel({
-    this.queries,
+    this.queries = const [],
     this.limit,
     this.skip,
     this.sortBy,
@@ -28,27 +29,27 @@ class ParamsModel {
     }
 
     if (opr.length > 0) {
-      params.add("operators=" + fields.join("**"));
+      params.add("operators=" + opr.join("**"));
     }
 
     if (val.length > 0) {
-      params.add("values=" + fields.join("**"));
+      params.add("values=" + val.join("**"));
     }
 
-    if (limit != "") {
-      params.add("limit=" + limit);
+    if (["", null, "null"].indexOf(limit.toString()) < 0) {
+      params.add("limit=$limit");
     }
 
-    if (skip != "") {
-      params.add("skip=" + skip);
+    if (["", null, "null"].indexOf(skip.toString()) < 0) {
+      params.add("skip=$skip");
     }
 
-    if (sortField != "") {
-      params.add("sort=" + sortField);
+    if (["", null].indexOf(sortField) < 0) {
+      params.add("sort=$sortField");
     }
 
-    if (sortBy != "") {
-      params.add("by=" + sortBy);
+    if (["", null].indexOf(sortBy) < 0) {
+      params.add("by=$sortBy");
     }
 
     return params.length > 0 ? "?" + params.join("&") : "";

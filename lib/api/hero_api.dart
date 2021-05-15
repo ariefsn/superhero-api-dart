@@ -12,9 +12,7 @@ class HeroApi {
   }
 
   /// Return list of superheroes
-  Future<ResponseSuperheroesModel> getAll({
-    ParamsModel params
-  }) async {
+  Future<ResponseSuperheroesModel> getAll({ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
@@ -52,14 +50,14 @@ class HeroApi {
   }
 
   /// Return details of hero by query
-  Future<ResponseSuperheroesModel> getByQuery(QueryModel query, {
-    ParamsModel params
-  }) async {
+  Future<ResponseSuperheroesModel> getByQuery(QueryModel query,
+      {ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
     try {
-      var res = await _api.get("/heroes/query/${query.field}/${query.opr.value()}/${query.value}$p");
+      var res = await _api.get(
+          "/heroes/query/${query.field}/${query.opr.value()}/${query.value}$p");
 
       return ResponseSuperheroesModel.fromJson(res.data);
     } catch (e) {

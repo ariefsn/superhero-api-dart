@@ -14,17 +14,18 @@ class SuperheroApi {
   OriginApi origin;
   SuperPowerApi superPower;
 
-  SuperheroApi(String url, {
-    Function(RequestOptions options, RequestInterceptorHandler handler) onRequest,
-    Function(Response<dynamic> response, ResponseInterceptorHandler handler) onResponse,
-    Function(DioError error, ErrorInterceptorHandler handler) onError
-  }) {
-    var api = BaseApi(url, onRequest: onRequest, onResponse: onResponse, onError: onError);
+  SuperheroApi(String url,
+      {Function(RequestOptions options, RequestInterceptorHandler handler)
+          onRequest,
+      Function(Response<dynamic> response, ResponseInterceptorHandler handler)
+          onResponse,
+      Function(DioError error, ErrorInterceptorHandler handler) onError}) {
+    var api = BaseApi(url,
+        onRequest: onRequest, onResponse: onResponse, onError: onError);
 
     hero = HeroApi(api);
     appearance = AppearanceApi(api);
     origin = OriginApi(api);
     superPower = SuperPowerApi(api);
   }
-
 }

@@ -12,9 +12,7 @@ class SuperPowerApi {
   }
 
   /// Return list of superPowers
-  Future<ResponseSuperPowersModel> getAll({
-    ParamsModel params
-  }) async {
+  Future<ResponseSuperPowersModel> getAll({ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
@@ -39,14 +37,14 @@ class SuperPowerApi {
   }
 
   /// Return details of superPower by query
-  Future<ResponseSuperPowersModel> getByQuery(QueryModel query, {
-    ParamsModel params
-  }) async {
+  Future<ResponseSuperPowersModel> getByQuery(QueryModel query,
+      {ParamsModel params}) async {
     var p = params?.build();
     p = p != null && p != "" ? p : "";
 
     try {
-      var res = await _api.get("/superpowers/query/${query.field}/${query.opr.value()}/${query.value}$p");
+      var res = await _api.get(
+          "/superpowers/query/${query.field}/${query.opr.value()}/${query.value}$p");
 
       return ResponseSuperPowersModel.fromJson(res.data);
     } catch (e) {
